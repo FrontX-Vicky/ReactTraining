@@ -2,18 +2,37 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+	<script src="https:unpkg.com/babel-standalone@6/babel.min.js"></script>
     <title>React ⚛️</title>
   </head>
+  </head>
   <body>
-      <div id="root"></div>
-      
-      <script type="text/javascript">
-          ReactDOM.render(
-              React.createElement("h1", null, "Getting Started!"),
-              document.getElementById("root")
-          );
-      </script>
+    <h1>Getting Started with React</h1>
+	
+	<div id="root"></div>
+	
+	<script type="text/babel">
+	
+			let one = 1;
+			let two = 2;
+			let three = 3;
+			
+			ReactDOM.render(
+				<ul>
+					<li>{one}</li>
+					<li>{two}</li>
+					<li>{three + two}</li>
+				</ul>
+			
+			,document.getElementById("root"));
+	</script>
   </body>
 </html>
