@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+	<script src="https:unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React ⚛️</title>
+  </head>
+  </head>
+  <body>
+    <h1>Getting Started with React</h1>
+	
+	<div id="root"></div>
+	
+	<script type="text/babel">
+
+            function Header(){
+                return (
+                    <header>
+                        <h1>React Function Header</h1>
+                    </header>
+                );
+            }
+
+            function Main(){
+                return (
+                    <section>
+                        <p>
+                            This is the <b>Main</b> section of my project
+                        </p>
+                    </section>
+                );
+            }
+
+            function App(){
+                return (
+                    <div>
+                        <Header /><Main />
+                    </div>
+                );
+            }
+
+			ReactDOM.render(< App/>,document.getElementById("root"));
+	</script>
+  </body>
+</html>

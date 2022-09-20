@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+	<script src="https:unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React ⚛️</title>
+  </head>
+  </head>
+  <body>
+    <h1>Getting Started with React</h1>
+	
+	<div id="root"></div>
+	
+	<script type="text/babel">
+
+            const dishes = ["Butter Chicken",
+                            "Panner Makkhanvala",
+                            "Paneer Tadka",
+                            "Paneer Butter Masala"];
+
+            function Header(props){
+                console.log(props);
+                return (
+                    <header>
+                        <h3>React Function Header {props.name}</h3>
+                    </header>
+                );
+            }
+
+            function Main(props){
+                return (
+                    <section>
+                        <ul>
+                            {dishes.map()}    
+                        </ul>
+                    </section>
+                );
+            }
+
+            function Footer(props){
+                return (
+                    <footer>
+                        <p>Copyright {props.year}</p>
+                    </footer>
+                );
+            }
+
+            function App(){
+                return (
+                    <div>
+                        <Header name="Vicky"/>
+                        <Main prop1="Main"/>
+                        <Footer year={new Date().getFullYear()}/>
+                    </div>
+                );
+            }
+
+			ReactDOM.render(<App name="Vicky"/>,document.getElementById("root"));
+	</script>
+  </body>
+</html>
