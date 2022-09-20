@@ -24,7 +24,17 @@
             const dishes = ["Butter Chicken",
                             "Panner Makkhanvala",
                             "Paneer Tadka",
-                            "Paneer Butter Masala"];
+                            "Paneer Butter Masala",
+                            "Pizza"];
+
+            const dishObject = dishes.map(
+                (dish, i) => ({ 
+                    id : i, 
+                    title : dish
+                })
+            );
+
+            console.log(dishObject);
 
             function Header(props){
                 console.log(props);
@@ -38,8 +48,15 @@
             function Main(props){
                 return (
                     <section>
+                        <img 
+                            height={200} 
+                            src="https://images.fineartamerica.com/public/images/homepage/ourProductsAcrylic002.jpg"
+                            alt="red flowers">
+                        </img>
                         <ul>
-                            {dishes.map()}    
+                            {props.dishes.map((dish) => (
+                                <li key={dish.id}>{dish.title}</li>
+                            ))}    
                         </ul>
                     </section>
                 );
@@ -55,11 +72,11 @@
 
             function App(){
                 return (
-                    <div>
+                    <React.Fragment>
                         <Header name="Vicky"/>
-                        <Main prop1="Main"/>
+                        <Main prop1="Main" dishes={dishObject}/>
                         <Footer year={new Date().getFullYear()}/>
-                    </div>
+                    </React.Fragment>
                 );
             }
 
