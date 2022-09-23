@@ -8,9 +8,6 @@ function App() {
   const [color, setColor] = useState("#000")
 
   // Logic
-  const textTitle = useRef();
-  const hexColor = useRef();
-
   const submit = (e) => {
     e.preventDefault();
 
@@ -18,11 +15,6 @@ function App() {
     setTitle("");
     setColor("#000");
   }
-
-
-
-
-
 
 
 
