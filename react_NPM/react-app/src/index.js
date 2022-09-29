@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// import AppAPI from './App_api';
-// import RenderProps from './Render_props';
+import AppAPI from './App_api';
+import RenderProps from './Render_props';
 import {ReactRouter, About, Contact, History} from './react_router';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
