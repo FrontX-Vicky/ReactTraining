@@ -10,12 +10,12 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    {/* <App /> */}
-    {/* <br/><hr/><br/>
-    <AppAPI /> */}
-    {/* <br/><hr/><br/>
-    <RenderProps /> */}
-    {/* <br/><hr/><br/> */}
+    <App />
+    <br/><hr/><br/>
+    <AppAPI />
+    <br/><hr/><br/>
+    <RenderProps />
+    <br/><hr/><br/>
 
       <Routes>
           <Route path="/" element={<ReactRouter />} />
