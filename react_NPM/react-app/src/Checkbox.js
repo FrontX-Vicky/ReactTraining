@@ -1,4 +1,4 @@
-import { Reducer } from "react";
+import { useReducer } from "react";
 
 export function Checkbox(){
     const [checked, setChecked] = useReducer(
