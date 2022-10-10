@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App container mx-auto mt-5 font-thin">
 
-      <h2 className='mb-4 text-5xl strong'><BiCalendar className='inline-block text-red-400 align-top' /> My Appointments</h2>
+      <h2 className='mb-4 text-5xl strong'><BiCalendar className='inline-block text-red-400 align-top' /> My Appointments </h2>
       <AddAppointment />
       <Search />
 
