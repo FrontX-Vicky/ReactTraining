@@ -9,10 +9,20 @@ const opts = {
   body: JSON.stringify(query)
 }
 
+function TableHeaders(header){
+  var cols = Object.values(header)
+  return (
+    <ul>{    }</ul>
+  )
+}
+
 function Report(data) {
   return (
     <div>
-        
+        {
+         <TableHeaders header = {data.data.header} />
+        //  console.log(data.data.header)
+        }
     </div>
   )
 }
@@ -39,16 +49,12 @@ function App_api() {
   if (error) return <pre>{JSON.stringify(error)}</pre>;
   if (!response) return null;
 
-  console.log(response);
-
   //UI
   return (
     <div>
-      {response.data.map((data, i) => (
-        <Report key={i}
-          data={data}
-        />
-      ))}
+      {
+        <Report data={response} />
+      }
     </div>
   );
 }
