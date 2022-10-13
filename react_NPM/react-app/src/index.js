@@ -10,20 +10,20 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    {/* <App /> */}
     <br/><hr/><br/>
     <AppAPI />
     <br/><hr/><br/>
-    <RenderProps />
+    {/* <RenderProps /> */}
     <br/><hr/><br/>
 
-      <Routes>
+      {/* <Routes>
           <Route path="/" element={<ReactRouter />} />
           <Route path="/about" element={<About />} >
             <Route path='history' element={<History />}/>
           </Route>
           <Route path="/contact" element={<Contact />} />
-      </Routes>
+      </Routes> */}
   </BrowserRouter>
 );
 
