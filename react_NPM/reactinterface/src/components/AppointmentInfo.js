@@ -1,5 +1,7 @@
 import { BiTrash } from 'react-icons/bi';
 
+
+
 const AppointmentInfo = ({ appointment , onDeleteAppointment }) => {
     return (
         <li className="px-3 py-3 flex items-start">
