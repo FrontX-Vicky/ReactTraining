@@ -2,7 +2,7 @@ import { useState } from "react"
 import { BiCalendarPlus } from "react-icons/bi"
 
 const AddAppointment = () =>{
-    let [toggleForm, setToggleForm] = useState(0)
+    let [toggleForm, setToggleForm] = useState(false)
     return (
         <div>
         <button onClick={()=> setToggleForm(!toggleForm)}
