@@ -42,10 +42,18 @@ function App() {
     <div className="App container mx-auto mt-5 font-thin">
 
       <h2 className='mb-4 text-5xl strong'><BiCalendar className='inline-block text-red-400 align-top' /> My Appointments </h2>
-      <AddAppointment />
+      <AddAppointment 
+        onSendAppointment={myAppointment => setAppointmentList([...appointmentList, myAppointment])}
+        lastId={appointmentList.reduce((max, item) => Number(item.id ) > max ? Number(item.id) : max, 0)}
+      />
       <Search 
           query={query}
           onQueryChange={myQuery => setQuery(myQuery)}
+          orderBy={orderBy}
+          onOrderByChange={mySort => setOrderBy(mySort)}
+          sortBy={sortBy}
+          onSortByChange={mySort=>setSortby(mySort)}
+
       />
 
       <ul className='divide-y divide-gray-200'>
