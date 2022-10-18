@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect, useReducer, useRef } from 'react';
 
-const query = { "form_token": "ABCD12345678", "col": ["id", "level"] };
+const query = { "form_token": "ABCD12345678"};
 
 const opts = {
   method: "POST",
@@ -10,19 +10,35 @@ const opts = {
 }
 
 function TableHeaders(header){
-  var cols = Object.values(header)
   return (
-    <ul>{    }</ul>
-  )
+      <tr>
+          <th>Sr no.</th>
+            {header.header.map((header, i)=>(
+                <th key={i}>{header}</th>
+            ))}
+        </tr>
+      )
+}
+
+function TableBody(data){
+    return(
+      data.data.map((row,i) => (<tr key={i}>
+        {row.map((cell,i) => (<td key={i}>{cell.value}</td>))}
+      </tr>))
+    )
 }
 
 function Report(data) {
   return (
     <div>
-        {
-         <TableHeaders header = {data.data.header} />
-        //  console.log(data.data.header)
-        }
+      <table>
+        <thead>
+          {<TableHeaders header = {data.data.header} />}
+        </thead>
+        <tbody>
+          {<TableBody data = {data.data.data} />}
+        </tbody>
+      </table> 
     </div>
   )
 }
