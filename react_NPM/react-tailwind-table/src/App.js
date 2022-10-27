@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "./Table";
+import Table, { SelectColumnFilter } from "./Table";
 
 const getData = () => [
   {
@@ -83,6 +83,8 @@ function App() {
       {
         Header: "Role",
         accessor: "role",
+        Filter: SelectColumnFilter,
+        filter: 'includes'
       },
     ],
     []
