@@ -1,6 +1,6 @@
 // src/Table.js
 import React from "react";
-import { useTable, useGlobalFilter, useAsyncDebounce, useFilters} from "react-table";
+import { useTable, useGlobalFilter, useAsyncDebounce, useFilters, useSortBy, usePagination  } from "react-table";
 
 //This is a custom filter UI for selecting a unique option from a list
 export function SelectColumnFilter({column :{ filterValue, setFilter, preFilteredRows, id}}){
@@ -66,7 +66,32 @@ function GlobalFilter({
 function Table({ columns, data}){
 
     // Use the state and functions returned from useTable to build your UI
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state, preGlobalFilteredRows, setGlobalFilter } = useTable({columns, data},useFilters, useGlobalFilter);
+    const { 
+        getTableProps, 
+        getTableBodyProps, 
+        headerGroups, 
+        // rows, 
+        prepareRow, 
+        state, 
+        preGlobalFilteredRows, 
+        setGlobalFilter,
+        //pagination tools
+        page,
+        canPreviousPage,
+        canNextPage,
+        pageOptions,
+        pageCount,
+        gotoPage,
+        nextPage,
+        previousPage,
+        setPageSize
+
+    } = useTable({columns, data},
+        useFilters, 
+        useGlobalFilter, 
+        useSortBy,
+        usePagination
+        );
 
      // Render the UI for your table
     return (
@@ -90,13 +115,19 @@ function Table({ columns, data}){
                     {headerGroups.map((headerGroup)=>(
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map((column) => (
-                                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                                // Add the sorting props to control sorting. For this example
+                                // we can add them into the header props
+                                <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")}
+                                <span>
+                                    {column.isSorted ? column.isSortedDesc ? ' ▼' : ' ▲' : ''}
+                                </span>
+                                </th>
                             ))}
                         </tr>
                     ))}
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {rows.map((row, i) => {
+                    {page.map((row, i) => {
                         prepareRow(row);
                         return (
                             <tr {...row.getRowProps()}>
@@ -110,6 +141,30 @@ function Table({ columns, data}){
                     })}
                 </tbody>
             </table>
+            {/* pagination */}
+            <div className="pagination">
+                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>{' '}
+                <button onClick={() => previousPage()} disabled={!canPreviousPage}>{'<'}</button>{' '}
+                <button onClick={() => nextPage()} disabled={!canNextPage}>{'>'}</button>{' '}
+                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>{' '}
+
+                <span>
+                    Page{'  '}
+                    <strong>
+                        {state.pageIndex + 1} of {pageOptions.lenght}
+                    </strong>{' '}
+                </span>
+                <select
+                    value={state.pageSize}
+                    onChange={e => {
+                        setPageSize(Number(e.target.value))
+                    }}>
+                        {[5, 10, 20].map(pageSize => (
+                            <option key={pageSize} value={pageSize}>show {pageSize}</option>
+                        ))}
+                </select>
+
+            </div>
             <div>
                 <pre>
                     <code>{JSON.stringify(state, null, 2)}</code>
