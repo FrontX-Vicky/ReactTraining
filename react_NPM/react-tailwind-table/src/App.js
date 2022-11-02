@@ -1,7 +1,7 @@
 import React from "react";
 import Table, { SelectColumnFilter } from "./Table";
 
-const getData = () => [
+const getData = () => {const data = [
   {
     name: "Jane Cooper",
     email: "jane.cooper@example.com",
@@ -62,7 +62,9 @@ const getData = () => [
     imgUrl:
       "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
-];
+]
+return [...data, ...data, ...data, ...data, ...data]
+};
 
 function App() {
 
